@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="hv-centered box-shadow" style="border-radius: 4pt; padding: 4pt;"
+        method="post" action="/signup">
+    <h2 class="form-title">Create account</h2>
+    <div class="form-input">
+        <label for="firstname">Firstname: </label>
+        <input id="firstname" type="text" name="firstname">
+    </div>
+    <div class="form-input">
+        <label for="lastname">Lastname: </label>
+        <input id="lastname" type="text" name="lastname">
+    </div>
+    <div class="form-input">
+        <label for="email">Email: </label>
+        <input id="email" type="text" name="email">
+    </div>
+    <div class="form-input">
+        <label for="password">Password: </label>
+        <input id="password" type="password" name="password">
+    </div>
+    <div class="form-input">
+        <label for="validatepassword">Validate password: </label>
+        <input id="validatepassword" type="password" name="validatepassword">
+    </div>
+    <div class="form-input">
+        <input type="submit" value="submit">
+    </div>
+</form>
+
+<script>
+    const validatePassword = () => {
+        var b = document.getElementById("password").value ==  document.getElementById("validatepassword").value;
+        if (b) {
+            document.getElementById("password").style.borderBottom = "2pt solid green"
+            document.getElementById("validatepassword").style.borderBottom = "2pt solid green"
+        } else {
+            document.getElementById("password").style.borderBottom = "2pt solid red"
+            document.getElementById("validatepassword").style.borderBottom = "2pt solid red"
+        }
+    }
+
+    const validateEmail = () => {
+        var email = document.getElementById("email").value;
+        var b = email.match(
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+        if (b) {
+            document.getElementById("email").style.borderBottom = "2pt solid green"
+        } else {
+            document.getElementById("email").style.borderBottom = "2pt solid red"
+        }
+    }
+
+    document.getElementById("password").addEventListener("change", validatePassword)
+    document.getElementById("validatepassword").addEventListener("change", validatePassword)
+    document.getElementById("email").addEventListener("change", validateEmail);
+</script>
+{% endblock %}
