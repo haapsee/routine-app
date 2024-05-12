@@ -46,6 +46,30 @@ input[type="submit"]:active {
   margin: 2pt 0 0 2pt;
 }
 
+input[type="submit"]:hover {
+    -webkit-filter: brightness(85%);
+}
+
+.button {
+  border: none;
+  padding: 4pt;
+  margin: 1pt;
+  font-size: 16pt;
+  box-shadow: 1pt 1pt 2pt gray;    
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.button:active {
+  box-shadow: none;
+  margin: 2pt 0 0 2pt;
+}
+
+.button:hover {
+    -webkit-filter: brightness(85%);
+}
+
 .form-input label {
   font-size: 12pt;
 }
@@ -68,4 +92,17 @@ input[type="submit"]:active {
 
 .box-shadow {
   box-shadow: 2pt 2pt 4pt gray;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background: indigo;
+}
+
+.header-title, .header-user, .header-log-in, .header-log-in a {
+    font-size: 16pt;
+    padding: 4pt 8pt;
+    color: ghostwhite;
+    background: none;
 }

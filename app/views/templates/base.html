@@ -9,6 +9,24 @@
     </head>
 
     <body id="container">
+        <div class="header">
+            <span class="header-title">Routine App</span>
+            {% if g.user %}
+            <span class="header-user">
+                {{ g.user["lastname"] + ", " + g.user["firstname"] }}
+            </span>
+            {% endif %}
+            <span class="header-log-in">
+            {% if g.user %}
+                <a href="/logout">Log out</a>
+            {% else %}
+                <a href="/signin">Log in</a>
+                or
+                <a href="/signup">Sign up</a>
+            {% endif %}
+            </span>
+        </div>
+    
         <div id="errors">
             {% for err in errors %}
             <p>{{err}}</p>
